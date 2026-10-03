@@ -35,7 +35,7 @@ Or download `plugin.zip` + `plugin.zip.sha256` from the [v0.1.0 release](https:/
 Let an AI agent install + enable the plugin for you with a single prompt — see
 [`AGENT_INSTALL_PROMPT.md`](./AGENT_INSTALL_PROMPT.md) (and on the
 [v0.1.0 release](https://github.com/syafaatashan/opendesign-zcode-plugin/releases/tag/v0.1.0)):
-copy that one prompt into a Claude/cursor CLI session and it handles install → enable →
+copy that one prompt into a ZCode AI agent session and it handles install → enable →
 restart → verify (7 tools as `mcp__opendesign__*`) with zero further input.
 
 ### Install from source
