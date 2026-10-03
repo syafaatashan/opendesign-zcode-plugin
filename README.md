@@ -20,6 +20,18 @@ first-class MCP server, skills, and slash commands.
 
 ## Install into ZCode
 
+### Quick install (recommended)
+
+ZCode can install the plugin straight from the GitHub release — no build or git clone needed:
+
+```bash
+zcode plugin install https://github.com/syafaatashan/opendesign-zcode-plugin/releases/download/v0.1.0/plugin.zip
+```
+
+Or download `plugin.zip` + `plugin.zip.sha256` from the [v0.1.0 release](https://github.com/syafaatashan/opendesign-zcode-plugin/releases/tag/v0.1.0), extract into `~/.zcode/cli/plugins/cache/zcode-plugins-official/opendesign/0.1.0/`, and re-scan so ZCode registers it in `installed_plugins.json`. Then **enable `opendesign@zcode-plugins-official` and restart ZCode.**
+
+### Install from source
+
 The plugin is a standard ZCode plugin package. To install from source:
 
 ```bash
