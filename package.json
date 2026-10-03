@@ -18,7 +18,8 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "test": "node test/smoke.mjs",
-    "typecheck": "tsc --noEmit"
+    "release-zip": "node scripts/release-zip.mjs",
+    "install-cache": "node scripts/install-to-cache.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/server": "2.0.0",
@@ -32,9 +33,33 @@
   "engines": {
     "node": ">=18"
   },
-  "homepage": "https://opendesign.cc",
+  "homepage": "https://github.com/syafaatashan/opendesign-zcode-plugin#readme",
   "repository": {
     "type": "git",
-    "url": "https://opendesign.cc/zcode"
-  }
+    "url": "https://github.com/syafaatashan/opendesign-zcode-plugin.git"
+  },
+  "bugs": "https://github.com/syafaatashan/opendesign-zcode-plugin/issues",
+  "keywords": [
+    "zcode",
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "opendesign",
+    "design-systems",
+    "design-tokens"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "dist",
+    "src",
+    "skills",
+    "commands",
+    "hooks",
+    "scripts",
+    "package.json",
+    ".mcp.json",
+    ".zcode-plugin"
+  ]
 }
