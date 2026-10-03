@@ -1,38 +1,43 @@
-# One-Prompt Installer (AI agents)
+# One-Prompt Installer (untuk AI agent di dalam ZCode)
 
-Kirim **prompt di bawah ini** ke sebuah AI agent (mis. Claude di dalam ZCode, atau
-openai/cursor CLI) yang punya akses *shell* pada mesin pengguna. Agent akan pasang,
-aktifkan, dan verifikasi plugin OpenDesign for ZCode tanpa pertanyaan lanjutan — instalasi
-dengan satu prompt.
+Prompt di bawah ini **dikhususkan untuk ZCode**: kirim ke sebuah AI agent yang berjalan *di
+dalam klien ZCode* (asisten ZCode yang dapat mengakses *shell* + CLI `zcode`). Agent akan
+memasang, mengaktifkan, dan memverifikasi plugin OpenDesign for ZCode secara end-to-end
+tanpa pertanyaan lanjutan — instalasi dengan satu prompt.
+
+> Catatan: agen berjalan **di dalam** ZCode, jadi ia memakai CLI/env `zcode` dan *shell*
+> yang tersedia di sesi ZCode. Restart ZCode dilakukan oleh agen (sesi ini akan reload);
+> verifikasi dilakukan di sesi ZCode yang baru setelah plugin aktif.
 
 Prompt yang dikirimkan (salin persis):
 
-> Anda adalah seorang *setup agent*. Pasang dan aktifkan plugin "OpenDesign for ZCode"
-> secara end-to-end, tanpa bertanya lagi.
+> Anda adalah seorang *setup agent* di dalam klien ZCode. Pasang dan aktifkan plugin
+> "OpenDesign for ZCode" secara end-to-end, tanpa bertanya lagi.
 >
 > 1. Pastikan CLI `zcode` tersedia (`zcode --version`). Jika tidak ada, hentikan dan
 >    laporkan "zcode CLI tidak ditemukan".
-> 2. Pasang plugin dari rilis terbaru:
+> 2. Pasang plugin langsung dari rilis (ZCode mendukung instalasi dari URL zip):
 >    ```
 >    zcode plugin install https://github.com/syafaatashan/opendesign-zcode-plugin/releases/download/v0.1.0/plugin.zip
 >    ```
 >    Jika sub-command di atas tidak dikenali, *fallback*: unduh `plugin.zip` +
->    `plugin.zip.sha256`, verifikasi SHA-256, ekstrak ke
+>    `plugin.zip.sha256` (verifikasi SHA-256), ekstrak ke
 >    `~/.zcode/cli/plugins/cache/zcode-plugins-official/opendesign/0.1.0/`, dan pastikan
 >    ada entry di `~/.zcode/cli/plugins/installed_plugins.json` dengan
->    `id: "opendesign@zcode-plugins-official"` dan `installPath` mengarah ke folder di atas.
+>    `id: "opendesign@zcode-plugins-official"` + `installPath` ke folder di atas
+>    (ini cara ZCode mendaftarkan plugin cache).
 > 3. Aktifkan plugin untuk pengguna:
 >    ```
 >    zcode plugin enable opendesign@zcode-plugins-official
 >    ```
->    Jika sub-command `enable` tidak ada, ubah pengaturan ZCode agar plugin `opendesign`
->    di-*enable* (Settings → Plugins → toggle `opendesign@zcode-plugins-official` ON), atau
->    tandai `enabled: true` pada entry di `installed_plugins.json`.
-> 4. **Restart klien ZCode** (keluar semua jendela, lalu buka kembali) agar MCP server,
->    skill, dan slash command termuat.
-> 5. Verifikasi setelah restart: jalankan dalam ZCode `/opendesign list` (atau
+>    Jika sub-command `enable` tidak ada, buka ZCode Settings → Plugins, toggle
+>    `opendesign@zcode-plugins-official` ke ON, atau tandai `enabled: true` pada entry di
+>    `installed_plugins.json`.
+> 4. **Restart ZCode** (keluar semua jendela, buka kembali) agar MCP server, skill, dan
+>    slash command termuat — agen akan reload; lanjutkan verifikasi setelahnya.
+> 5. Verifikasi setelah restart: di ZCode, ketik `/opendesign list` (atau periksen
 >    `zcode mcp list`) dan pastikan **7 tool OpenDesign** terpapar sebagai
->    `mcp__opendesign__*`, lalu `get_design_system('mercury')` mengembalikan tokens. Laporkan
->    `CONFIRMED` atau error pertama.
+>    `mcp__opendesign__*`, lalu jalankan `get_design_system('mercury')` dan pastikan
+>    mengembalikan tokens. Laporkan `CONFIRMED` atau error pertama.
 
-SHA-256 rilis: `c10534aea2a1597eea4c12921b507330db316d2196a6dd3a805f9dc471e58d8a`
+SHA-256 rilis `plugin.zip`: `c10534aea2a1597eea4c12921b507330db316d2196a6dd3a805f9dc471e58d8a`
