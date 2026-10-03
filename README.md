@@ -30,6 +30,14 @@ zcode plugin install https://github.com/syafaatashan/opendesign-zcode-plugin/rel
 
 Or download `plugin.zip` + `plugin.zip.sha256` from the [v0.1.0 release](https://github.com/syafaatashan/opendesign-zcode-plugin/releases/tag/v0.1.0), extract into `~/.zcode/cli/plugins/cache/zcode-plugins-official/opendesign/0.1.0/`, and re-scan so ZCode registers it in `installed_plugins.json`. Then **enable `opendesign@zcode-plugins-official` and restart ZCode.**
 
+### One-prompt installer (AI agents)
+
+Let an AI agent install + enable the plugin for you with a single prompt — see
+[`AGENT_INSTALL_PROMPT.md`](./AGENT_INSTALL_PROMPT.md) (and on the
+[v0.1.0 release](https://github.com/syafaatashan/opendesign-zcode-plugin/releases/tag/v0.1.0)):
+copy that one prompt into a Claude/cursor CLI session and it handles install → enable →
+restart → verify (7 tools as `mcp__opendesign__*`) with zero further input.
+
 ### Install from source
 
 The plugin is a standard ZCode plugin package. To install from source:
