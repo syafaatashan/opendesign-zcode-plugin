@@ -1,0 +1,28 @@
+{
+  "name": "opendesign",
+  "version": "0.1.0",
+  "description": "OpenDesign — 1,400+ real design systems with grounded design tokens (color, type, spacing, layout, motion) for a native ZCode MCP server + skills + slash commands.",
+  "author": {
+    "name": "OpenDesign"
+  },
+  "license": "MIT",
+  "skills": "skills",
+  "commands": "commands",
+  "mcpServers": {
+    "opendesign": {
+      "command": "C:\\Program Files\\ZCode\\ZCode.exe",
+      "args": [
+        "C:\\Program Files\\ZCode\\resources\\glm\\zcode.cjs",
+        "__zcode-plugin-host",
+        "${ZCODE_PLUGIN_ROOT}/dist/mcp/server.js"
+      ],
+      "cwd": "${ZCODE_PROJECT_DIR}",
+      "env": {
+        "ELECTRON_RUN_AS_NODE": "1",
+        "ZCODE_PLUGIN_DATA": "${ZCODE_PLUGIN_DATA}",
+        "ZCODE_PLUGIN_ID": "opendesign@zcode-plugins-official"
+      }
+    }
+  },
+  "userConfig": {}
+}
